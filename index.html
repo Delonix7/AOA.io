@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ato Aikins, PhD | Clinical Data Scientist</title>
+<meta name="description" content="Ato Oppong Aikins, PhD, BPharm: clinical data scientist and pharmacist working on real-world evidence, causal inference and machine learning with clinical laboratory data.">
+<meta property="og:title" content="Ato Aikins, PhD | Clinical Data Scientist">
+<meta property="og:description" content="Real-world evidence, causal inference and machine learning on clinical laboratory data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F6F6; --surface:#FFFFFF; --ink:#13262B; --muted:#4D5F64; --rule:#D5DDDE;
+  --deep:#0F3B44;
+  /* specimen-tube cap colours, one per research domain */
+  --lav:#7B5EA7; --gold:#B8860B; --blue:#2F7FB5; --green:#3C8C5A;
+  --focus:#2F7FB5;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0E1A1D; --surface:#14252A; --ink:#E6EEEF; --muted:#9FB2B6; --rule:#29403F; --deep:#8FD0D9;
+    --lav:#B49AE0; --gold:#E0B44A; --blue:#6FB6E6; --green:#78C495; --focus:#6FB6E6}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--deep)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--surface);padding:8px 12px;z-index:10}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:64px}
+nav.side{position:sticky;top:0;align-self:start;padding:56px 0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+nav.side .mark{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none}
+nav.side ul{list-style:none;padding:0;margin:28px 0 0}
+nav.side li a{display:block;padding:6px 0 6px 14px;text-decoration:none;color:var(--muted);border-left:2px solid var(--rule);font-weight:500}
+nav.side li a:hover,nav.side li a.on{color:var(--ink);border-left-color:var(--ink)}
+.side .ext{font-size:.9rem;color:var(--muted);display:grid;gap:6px}
+main{padding:56px 0 96px;min-width:0}
+section{padding:72px 0 0}
+section:first-child{padding-top:0}
+h2{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;margin:0 0 28px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+h3{font-size:1.0625rem;font-weight:700;margin:0}
+p{margin:0 0 1em;max-width:68ch}
+.muted{color:var(--muted)}
+
+/* hero */
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1;letter-spacing:-.035em;font-weight:800;margin:0 0 18px}
+.hero .role{font-size:1.25rem;font-weight:500;color:var(--deep);margin:0 0 28px;max-width:40ch;line-height:1.4}
+.hero .lede{font-size:1.125rem;max-width:62ch}
+.keys{margin:36px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:680px;font-size:.875rem;color:var(--muted);line-height:1.35}
+.keys span{border-top:10px solid var(--c);padding-top:8px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 40px;margin:36px 0 32px;padding:0;list-style:none}
+.facts b{display:block;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.facts li{color:var(--muted);font-size:.9375rem}
+.facts li b{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 18px;border:1.5px solid var(--ink);text-decoration:none;font-weight:600;font-size:.9375rem;border-radius:3px}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--deep);border-color:var(--deep);color:var(--bg)}
+.btn:not(.solid):hover{background:var(--surface)}
+
+/* experience timeline */
+.job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:0 0 32px}
+.job .when{color:var(--muted);font-size:.9375rem;font-variant-numeric:tabular-nums;padding-top:2px}
+.job .org{color:var(--muted);margin:2px 0 10px}
+.job ul{margin:0;padding-left:1.1em;max-width:66ch}
+.job li{margin:0 0 5px}
+.job li::marker{color:var(--muted)}
+
+/* studies */
+.studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--rule);border:1px solid var(--rule);margin-bottom:40px}
+.study{background:var(--surface);padding:20px 22px;border-top:4px solid var(--c)}
+.study p{font-size:.9375rem;color:var(--muted);margin:6px 0 0}
+.study a{font-size:.9rem;font-weight:600;display:inline-block;margin-top:10px}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+.proj img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--rule);margin-bottom:12px}
+.proj p{font-size:.9375rem;color:var(--muted);margin:6px 0 6px}
+.proj .tools{font-size:.85rem;color:var(--muted)}
+.proj a{text-decoration:none}
+.proj a:hover h3{text-decoration:underline}
+h3.sub{font-size:1rem;color:var(--muted);font-weight:600;margin:0 0 16px}
+
+/* publications */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.filters button{font:inherit;font-size:.875rem;font-weight:600;padding:6px 12px 6px 10px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);border-radius:3px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.filters button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface)}
+.filters i{width:10px;height:10px;background:var(--c);display:inline-block}
+ol.pubs{list-style:none;padding:0;margin:0}
+.pubs li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.pubs li::before{content:"";width:6px;background:var(--c);justify-self:start;border-radius:1px}
+.pubs .cite{font-family:"Source Serif 4",Georgia,serif;font-size:1rem;line-height:1.65;max-width:72ch}
+.pubs .cite em{font-style:italic}
+.pubs .type{font-family:"Hanken Grotesk",sans-serif;font-size:.8125rem;color:var(--muted);margin-top:4px}
+.pubs li[hidden]{display:none}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px}
+.skills p{margin:6px 0 0;color:var(--muted)}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px}
+.edu p{margin:4px 0 0;color:var(--muted);font-size:.9375rem}
+
+.contact p{font-size:1.125rem}
+footer{margin-top:72px;color:var(--muted);font-size:.875rem}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr;gap:0;padding:0 16px}
+  nav.side{position:static;height:auto;padding:24px 0 0;flex-direction:row;align-items:center;flex-wrap:wrap;gap:12px}
+  nav.side ul,.side .ext{display:none}
+  nav.side{display:none}
+  main{padding-top:40px}
+  .projects{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  .job{grid-template-columns:1fr;gap:4px}
+  .studies,.projects,.skills,.edu{grid-template-columns:1fr}
+  .keys{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}
+  section{padding-top:56px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <nav class="side" aria-label="Sections">
+    <div>
+      <a class="mark" href="#top">Ato Aikins</a>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ext">
+      <a href="https://www.linkedin.com/in/atoaikins/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Delonix7" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=vDvVlrgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <h1>Ato Oppong Aikins, PhD, BPharm</h1>
+      <p class="role">Clinical data scientist and pharmacist turning clinical laboratory data into evidence people can act on.</p>
+      <p class="lede">I have a PhD in Integrative Physiology and 5+ years of experience in data science and statistical analytics. As a Senior Statistical Fellow at Labcorp, I led real-world evidence studies on large national clinical laboratory datasets, from hypothesis to publication. I work in Python, SQL, R, Excel, Power BI and Tableau, and use machine learning, causal inference, A/B testing and experimental design. As a pharmacy owner and the developer of a pharmacy management system, I also apply data to day-to-day operational decisions.</p>
+      <div class="keys">
+        <span style="--c:var(--lav)">Clinical laboratory real-world evidence</span>
+        <span style="--c:var(--gold)">Neuroendocrinology and liver physiology</span>
+        <span style="--c:var(--blue)">Machine learning and analytics</span>
+        <span style="--c:var(--green)">Pharmacy practice and operations</span>
+      </div>
+
+      <ul class="facts">
+        <li><b>5</b>peer-reviewed articles</li>
+        <li><b>9</b>conference abstracts</li>
+        <li><b>5+ years</b>in data science</li>
+      </ul>
+      <div class="cta">
+        <a class="btn solid" href="https://www.linkedin.com/in/atoaikins/" target="_blank" rel="noopener">Contact me on LinkedIn</a>
+        <a class="btn" href="#publications">See publications</a>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <div class="when">Jan 2023 – 2026</div>
+        <div>
+          <h3>Senior Statistical Fellow in Clinical Data Research</h3>
+          <div class="org">Labcorp Center for Excellence in Data Science, AI &amp; Bioinformatics, Durham, NC, USA</div>
+          <ul>
+            <li>Led real-world evidence studies from hypothesis development to publication using large national clinical laboratory databases</li>
+            <li>Extracted, cleaned and analyzed patient laboratory records using SQL, Python and statistical and machine learning methods</li>
+            <li>Evaluated the impact of the Choosing Wisely campaign on folate test ordering, quantifying changes in test utilization after a national intervention</li>
+            <li>Established age-specific total IgE reference intervals and assessed their diagnostic utility in predicting allergen sensitization</li>
+            <li>Analyzed national trends in gestational diabetes, measles testing and HIV PrEP panel use to inform public health and test-ordering decisions</li>
+            <li>Worked cross-functionally and presented findings to technical and non-technical stakeholders, and at national meetings including IDWeek, ADA and ACG</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Current</div>
+        <div>
+          <h3>Owner, Delonix Pharmacy; Founder, Lapwing Systems</h3>
+          <div class="org">Obuasi, Ghana</div>
+          <ul>
+            <li>Built PharmWing, a pharmacy point-of-sale and management system that captures sales, inventory and operational data</li>
+            <li>Use sales and inventory data to guide operational decisions in a community pharmacy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Aug 2018 – Jan 2023</div>
+        <div>
+          <h3>Graduate Research Assistant, Integrative Physiology</h3>
+          <div class="org">University of North Texas Health Science Center, Fort Worth, TX, USA</div>
+          <ul>
+            <li>Designed and ran controlled experiments on neuroendocrine regulation in liver cirrhosis, focusing on dilutional hyponatremia</li>
+            <li>Collected and statistically analyzed electrophysiology, optogenetics, imaging and physiological data from rodent models</li>
+            <li>Taught in physiology, anatomy, biochemistry, genetics and data informatics courses, and mentored students</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Apr 2016 – Jul 2018</div>
+        <div>
+          <h3>Medical Science Liaison</h3>
+          <div class="org">Sanofi, Kumasi, Ghana</div>
+          <ul>
+            <li>Led product forecasting and territory performance tracking for long-acting insulin (Lantus)</li>
+            <li>Won the “Rookie of the Year” award in 2016</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">Jun 2015 – May 2016</div>
+        <div>
+          <h3>Pharmacist</h3>
+          <div class="org">UQ Specialist Medical Center, Takoradi, Ghana</div>
+          <ul>
+            <li>Improved inventory management, reducing medication waste by 30%</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>Selected work</h2>
+      <h3 class="sub">Labcorp studies</h3>
+      <div class="studies">
+        <div class="study" style="--c:var(--lav)">
+          <h3>Choosing Wisely and folate test ordering</h3>
+          <p>Measured how a national campaign changed folate test utilization in a national reference laboratory. Published in <em>The Journal of Applied Laboratory Medicine</em>, 2025.</p>
+        </div>
+        <div class="study" style="--c:var(--lav)">
+          <h3>Age-specific total IgE reference intervals</h3>
+          <p>Built age-specific reference intervals and tested how well they predict allergen sensitization.</p>
+        </div>
+        <div class="study" style="--c:var(--lav)">
+          <h3>Anti-glycan antibodies in Crohn’s disease</h3>
+          <p>Assessed the diagnostic and prognostic value of novel antibodies, especially in ASCA-seronegative patients.</p>
+          <a href="https://journals.lww.com/ajg/fulltext/2024/10001/s1169_unmasking_crohn_s_disease__novel_anti_glycan.1170.aspx" target="_blank" rel="noopener">Read the abstract</a>
+        </div>
+        <div class="study" style="--c:var(--lav)">
+          <h3>Anti-mitochondrial antibodies in PBC</h3>
+          <p>Evaluated anti-sp100 and anti-gp210 antibodies in the diagnosis of primary biliary cholangitis.</p>
+          <a href="https://journals.lww.com/ajg/fulltext/2024/10001/s72_diagnostic_value_of_anti_mitochondrial.73.aspx" target="_blank" rel="noopener">Read the abstract</a>
+        </div>
+        <div class="study" style="--c:var(--lav)">
+          <h3>HIV PrEP panel utilization</h3>
+          <p>Analyzed how clinicians order CDC-aligned HIV PrEP panels.</p>
+          <a href="https://academic.oup.com/ofid/article/12/Supplement_1/ofae631.729/7988080" target="_blank" rel="noopener">Read the abstract</a>
+        </div>
+        <div class="study" style="--c:var(--lav)">
+          <h3>Testing patterns and costs</h3>
+          <p>Further studies on gaps and disparities in hepatitis B testing, unnecessary thyroid testing and its cost, vitamin D testing and deficiency rates, and one-step versus two-step gestational diabetes diagnosis.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Data science projects</h3>
+      <div class="projects">
+        <div class="proj"><a href="https://github.com/Delonix7/My_Data_Science_Projects/blob/main/task_1_data_pre_processing_version1.ipynb" target="_blank" rel="noopener">
+          <img src="img/energy.jpg" alt="" width="640" height="400">
+          <h3>Reducing building energy use</h3></a>
+          <p>Omdena AI for Climate Change project with an international team of data scientists and ML engineers.</p>
+          <div class="tools">Python, scikit-learn, pandas, NumPy, SciPy, Matplotlib</div>
+        </div>
+        <div class="proj"><a href="https://github.com/Delonix7/IBM_Data_Science_Capstone" target="_blank" rel="noopener">
+          <img src="img/falcon9.jpg" alt="" width="640" height="400">
+          <h3>Predicting Falcon 9 landings</h3></a>
+          <p>IBM capstone predicting whether a SpaceX first stage will land, with web scraping and an interactive dashboard.</p>
+          <div class="tools">Python, scikit-learn, Dash, web scraping</div>
+        </div>
+        <div class="proj"><a href="https://github.com/Delonix7/Predicting_RTC_Severity_project" target="_blank" rel="noopener">
+          <img src="img/rtc.jpg" alt="" width="640" height="400">
+          <h3>Predicting road traffic collision severity</h3></a>
+          <p>Classification models for the severity of road traffic collisions.</p>
+          <div class="tools">Python, machine learning</div>
+        </div>
+        <div class="proj"><a href="https://github.com/Delonix7/My_Data_Science_Projects/blob/main/California_housing_Project/California_Housing_project.ipynb" target="_blank" rel="noopener">
+          <img src="img/housing.jpg" alt="" width="640" height="400">
+          <h3>California housing prices</h3></a>
+          <p>An end-to-end machine learning project, from preprocessing to model selection.</p>
+          <div class="tools">Python, scikit-learn, pandas, NumPy</div>
+        </div>
+        <div class="proj"><a href="https://github.com/Delonix7/My_Data_Science_Projects/blob/main/PhD_Project.ipynb" target="_blank" rel="noopener">
+          <img src="img/neuron.jpg" alt="" width="640" height="400">
+          <h3>PhD dissertation analysis</h3></a>
+          <p>Preprocessing, visualization and statistical analysis of data from a dissertation sub-project.</p>
+          <div class="tools">Python, statistics, data visualization</div>
+        </div>
+        <div class="proj"><a href="https://github.com/Delonix7/SQL/tree/main/COVID_PROJECT" target="_blank" rel="noopener">
+          <img src="img/covid-sql.jpg" alt="" width="640" height="400">
+          <h3>COVID-19 data exploration</h3></a>
+          <p>Exploring a COVID-19 dataset in SQL Server, with dashboards.</p>
+          <div class="tools">SQL, Tableau, Power BI</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="filters" role="group" aria-label="Filter publications">
+        <button type="button" data-f="all" aria-pressed="true" style="--c:var(--ink)"><i></i>All 14</button>
+        <button type="button" data-f="article" aria-pressed="false" style="--c:var(--ink)"><i style="background:transparent;border:1.5px solid var(--ink)"></i>Peer-reviewed articles</button>
+        <button type="button" data-f="lab" aria-pressed="false" style="--c:var(--lav)"><i></i>Clinical laboratory</button>
+        <button type="button" data-f="neuro" aria-pressed="false" style="--c:var(--gold)"><i></i>Neuroendocrinology and liver</button>
+      </div>
+      <ol class="pubs" id="pubs">
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite">Walworth CM, Gillim L, Dale S, Martens SK, Alfego D, <b>Aikins AO</b>. Measles testing in a large commercial laboratory in the United States, 2023–2025, in an era of increasing measles infections. <em>Open Forum Infectious Diseases</em> 13 (Suppl 1).</div><div class="type">Conference abstract, IDWeek 2025</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite"><b>Aikins AO</b>, Alfego D, Katayev A, Naides S, Rafalko J, Letovsky S, Valcour A. Diagnostic utility of age-specific total IgE reference intervals in predicting allergen sensitization: a retrospective analysis. <em>Annals of Allergy, Asthma &amp; Immunology</em> 135(5), S23–S24.</div><div class="type">Conference abstract</div></div></li>
+        <li data-d="neuro article" style="--c:var(--gold)"><div><div class="cite">Appiah CB, <b>Aikins AO</b>, Farmer GE, Cunningham JT. Nitric oxide and inflammation in chronic intermittent hypoxia: contributors to hypertension and cognitive impairment. <em>Brain, Behavior, and Immunity</em>. 2025.</div><div class="type">Peer-reviewed article</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite"><b>Aikins AO</b>, Ranjitkar P, Alfego D, Shajani-Yi Z. Rising rate of gestational diabetes in adults from 2012–2022: real-world evidence from a national laboratory database. <em>Diabetes</em> 74 (Suppl 1).</div><div class="type">Conference abstract, ADA 2025</div></div></li>
+        <li data-d="lab article" style="--c:var(--lav)"><div><div class="cite"><b>Aikins AO</b>, Shajani-Yi Z, Nagendra S, Alfego D, Ranjitkar P. Impact of the Choosing Wisely campaign on folate test utilization: an observational study in a national reference laboratory. <em>The Journal of Applied Laboratory Medicine</em>. 2025.</div><div class="type">Peer-reviewed article</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite">Yang J, <b>Aikins AO</b>, Punzalan R, Alfego D, Chun KY. Serum anti-mitochondrial antibodies including anti-sp100 and anti-gp210 in the diagnosis of primary biliary cholangitis. <em>ACG 2024</em>. <a href="https://journals.lww.com/ajg/fulltext/2024/10001/s72_diagnostic_value_of_anti_mitochondrial.73.aspx" target="_blank" rel="noopener">Abstract</a></div><div class="type">Conference abstract</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite">Walworth C, Gillim L, Alfego D, <b>Aikins AO</b>. Clinician utilization of CDC-aligned HIV PrEP panels. <em>IDWeek 2024</em>. <a href="https://academic.oup.com/ofid/article/12/Supplement_1/ofae631.729/7988080" target="_blank" rel="noopener">Abstract</a></div><div class="type">Conference abstract</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite">Yang J, <b>Aikins AO</b>, Alfego D, Chun KY. Unmasking Crohn’s disease: novel anti-glycan antibodies may improve diagnostic accuracy while providing prognostic value, especially in ASCA-seronegative patients. <em>UEG Week 2024 and ACG 2024</em>. <a href="https://journals.lww.com/ajg/fulltext/2024/10001/s1169_unmasking_crohn_s_disease__novel_anti_glycan.1170.aspx" target="_blank" rel="noopener">Abstract</a></div><div class="type">Conference abstract</div></div></li>
+        <li data-d="lab" style="--c:var(--lav)"><div><div class="cite">Ranjitkar P, <b>Aikins AO</b>, Alfego D, Shajani-Yi Z, Nagendra S. Ordering trends in serum folate: a national reference laboratory observational study. <em>PLUGS Summit 2024</em>.</div><div class="type">Conference abstract</div></div></li>
+        <li data-d="neuro article" style="--c:var(--gold)"><div><div class="cite"><b>Aikins AO</b>, Farmer GE, Little JT, Cunningham JT. Effects of bile duct ligation on the inhibitory control of supraoptic vasopressin neurons. <em>Journal of Neuroendocrinology</em>. 2023;35(6).</div><div class="type">Peer-reviewed article</div></div></li>
+        <li data-d="neuro article" style="--c:var(--gold)"><div><div class="cite"><b>Aikins AO</b>, Little JT, Rybalchenko N, Cunningham JT. Norepinephrine innervation of the supraoptic nucleus contributes to increased copeptin and dilutional hyponatremia in male rats. <em>American Journal of Physiology: Regulatory, Integrative and Comparative Physiology</em>. 2022;323(5).</div><div class="type">Peer-reviewed article</div></div></li>
+        <li data-d="neuro" style="--c:var(--gold)"><div><div class="cite"><b>Aikins AO</b>, Brock C, Little JT, Farmer GE, Cunningham JT. Bile duct ligation changes the inhibitory control of vasopressin neurons in male rats. <em>The FASEB Journal</em> (Experimental Biology 2022).</div><div class="type">Conference abstract</div></div></li>
+        <li data-d="neuro" style="--c:var(--gold)"><div><div class="cite"><b>Aikins AO</b>, Little J, Rybalchenko N, Cunningham JT. Norepinephrine innervation of the supraoptic nucleus contributes to dilutional hyponatremia in male bile duct-ligated rats. <em>The FASEB Journal</em> 2021.</div><div class="type">Conference abstract</div></div></li>
+        <li data-d="neuro article" style="--c:var(--gold)"><div><div class="cite"><b>Aikins AO</b>, Nguyen DH, Paundralingga O, Farmer GE, Shimoura CG, Brock C, Cunningham JT. Cardiovascular neuroendocrinology: emerging role for neurohypophyseal hormones in pathophysiology. <em>Endocrinology</em>. 2021;162(8).</div><div class="type">Peer-reviewed article</div></div></li>
+      </ol>
+      <p class="muted" style="margin-top:20px">Full list on <a href="https://scholar.google.com/citations?user=vDvVlrgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h3>Programming and data</h3><p>Python, SQL, R, Excel</p></div>
+        <div><h3>Visualization and BI</h3><p>Power BI, Tableau, Matplotlib, Dash</p></div>
+        <div><h3>Statistics and machine learning</h3><p>Causal inference, A/B testing, experimental design, statistical modeling and inference, predictive modeling, scikit-learn</p></div>
+        <div><h3>Communication</h3><p>Technical and business writing, presentations to clinical, scientific and business audiences, manuscript and grant writing</p></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education and training</h2>
+      <div class="edu">
+        <div><h3>PhD, Biomedical Sciences (Integrative Physiology)</h3><p>University of North Texas Health Science Center, 2018 – 2023</p></div>
+        <div><h3>Bachelor of Pharmacy</h3><p>Kwame Nkrumah University of Science and Technology, 2010 – 2014</p></div>
+        <div><h3>IBM Data Science Professional Program</h3><p>IBM, 2022</p></div>
+        <div><h3>Data Analysis with R Specialization</h3><p>Duke University, 2022</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>I’m open to data science, real-world evidence and analytics roles. The quickest way to reach me is on <a href="https://www.linkedin.com/in/atoaikins/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <div class="cta">
+        <a class="btn solid" href="https://www.linkedin.com/in/atoaikins/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/Delonix7" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=vDvVlrgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+      <footer>© <span id="yr">2026</span> Ato Oppong Aikins. Ashanti Region, Ghana.</footer>
+    </section>
+  </main>
+</div>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button'), items=document.querySelectorAll('#pubs li');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    items.forEach(function(li){li.hidden=!(f==='all'||li.dataset.d.split(' ').indexOf(f)>-1)});
+  })});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var links=document.querySelectorAll('nav.side li a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+</body>
+</html>
